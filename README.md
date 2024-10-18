@@ -1,16 +1,39 @@
-# Hunt the Wumpus with Alpha Beta Pruning Implementation
-**Objectives:** Player needs to kill Wumpus first then search for gold, after both are fulfilled, player goes back to its initial position.
-**Implementation and Explanation:** Using Alpha Beta Pruning, it decides the best move based on the score. For every step, it will get -1 score, killing Wumpus +500 score, taking the Gold +1000, back to initial position +2000. Therefore, even though the objective is to kill the Wumpus first, there's a chance for the player to take the gold first if it's much closer than the Wumpus.
-**Environment:** It is a table with 6x6 grid. The code will generates 2 pits, 1 Wumpus, and 1 gold with random placement but while ensuring that it will not be too close to the initial position. Grid that is adjacent to pit will create this B text which is 'Breeze', while grid that is adjacent to Wumpus will create'S' text for 'Stench'.
+# Hunt the Wumpus with Alpha-Beta Pruning Implementation
 
-### Alpha Beta Pruning and Hunt the Wumpus Detailed Explanation
-**About the Game:** Hunt the Wumpus is a classic text-based adventure game from the early 1970s, often seen as an early example of procedural generation and strategic gameplay. The game was created by Gregory Yob in 1972. The goal is to explore a series of connected rooms or caves to hunt a mythical creature called the "Wumpus" while avoiding various hazards. It's often considered one of the early inspirations for AI in games due to the strategic elements players need to consider.
-**Alpha Beta Pruning Definition:** Alpha - beta pruning is an optimization technique for the minimax algorithm. It reduces the number of nodes evaluated in the game tree by eliminating branches that cannot influence the final decision. This is achieved by maintaining two values, alpha and beta, which represent the minimum score that the maximizing player is assured of and the maximum score that the minimizing player is assured of, respectively.
-Alpha: The best (highest) value that the maximizer can guarantee given the current state.
-Beta: The best (lowest) value that the minimizer can guarantee given the current state.
+### **Objectives:**
+The player needs to first kill the Wumpus, then search for the gold, and finally return to the initial position. The game is designed so that these objectives should be completed in order, but there's flexibility if the gold is closer than the Wumpus.
 
-## Collabolators:
-1. Angelica Suti Whiharto (hwasyui)
-2. Intan Kumala Pasya (tannpsy)
-3. Muh. Fakhri Hisyam Akbar (Grayzero15)
+### **Implementation and Explanation:**
+Alpha-Beta Pruning is used to determine the best move based on the score. Each step reduces the score by 1. The following actions provide points:
+- Killing the Wumpus: +500
+- Taking the gold: +1000
+- Returning to the initial position: +2000  
 
+Even though the main goal is to kill the Wumpus first, the player may take the gold before killing the Wumpus if the gold is closer.
+
+### **Environment:**
+The game is set on a 6x6 grid. The code randomly generates the following elements, ensuring they are not too close to the player's initial position:
+- 2 pits
+- 1 Wumpus
+- 1 gold  
+
+Any grid cell adjacent to a pit will display a "B" (Breeze), and any cell adjacent to the Wumpus will display an "S" (Stench).
+
+---
+
+## **Alpha-Beta Pruning and Hunt the Wumpus: Detailed Explanation**
+
+### **About the Game:**
+Hunt the Wumpus is a classic text-based adventure game, first created by Gregory Yob in 1972. The player explores a series of connected rooms (or caves) to hunt a mythical creature called the "Wumpus" while avoiding hazards like pits. This game is one of the earliest examples of procedural generation and strategic gameplay, and it is often seen as an early inspiration for artificial intelligence in games.
+
+### **Alpha-Beta Pruning Definition:**
+Alpha-beta pruning is an optimization technique for the minimax algorithm. It reduces the number of nodes evaluated in the game tree by "pruning" branches that cannot affect the final decision. This is done by maintaining two values:
+- **Alpha:** The best (highest) value the maximizer can guarantee, given the current state.
+- **Beta:** The best (lowest) value the minimizer can guarantee, given the current state.
+
+---
+
+## **Collaborators:**
+1. **Angelica Suti Whiharto** (hwasyui)  
+2. **Intan Kumala Pasya** (tannpsy)  
+3. **Muh. Fakhri Hisyam Akbar** (Grayzero15)
